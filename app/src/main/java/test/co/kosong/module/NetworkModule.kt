@@ -1,5 +1,7 @@
 package test.co.kosong.module
 
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FirebaseFirestore
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -10,7 +12,12 @@ import retrofit2.Converter
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
-import test.co.kosong.module.C.BASE_URL
+import test.co.kosong.utils.C.BASE_URL
+import test.co.kosong.repository.AuthRepository
+import test.co.kosong.repository.AuthRepositoryImpl
+import test.co.kosong.repository.DatabaseRepository
+import test.co.kosong.repository.DatabaseRepositoryImpl
+import test.co.kosong.repository.Repository
 import javax.inject.Singleton
 
 @Module
@@ -68,5 +75,35 @@ object NetworkModule {
     @Provides
     fun provideRepository(apiService: ApiService): Repository {
         return Repository(apiService)
+    }
+
+    // firebase
+//    @Provides
+//    @Singleton
+//    fun providesFirebaseAuth() = FirebaseAuth.getInstance()
+//
+//    @Provides
+//    @Singleton
+//    fun providesAuthRepositoryImpl(firebaseAuth: FirebaseAuth): AuthRepository {
+//        return AuthRepositoryImpl(firebaseAuth = firebaseAuth)
+//    }
+
+
+    @Provides
+    @Singleton
+    fun providesDatabaseRepositoryImpl(): DatabaseRepository {
+        return DatabaseRepositoryImpl()
+    }
+
+    @Provides
+    @Singleton
+    fun provideFirebaseFirestore(): FirebaseFirestore {
+        return FirebaseFirestore.getInstance()
+    }
+
+    @Provides
+    @Singleton
+    fun providesAuthRepositoryImpl(firestore: FirebaseFirestore): AuthRepository {
+        return AuthRepositoryImpl(firestore = firestore)
     }
 }

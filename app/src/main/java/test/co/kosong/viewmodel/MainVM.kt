@@ -1,6 +1,5 @@
 package test.co.kosong.viewmodel
 
-import android.util.Log
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -10,7 +9,7 @@ import io.reactivex.disposables.Disposable
 import io.reactivex.schedulers.Schedulers
 import kotlinx.coroutines.launch
 import test.co.kosong.model.libur
-import test.co.kosong.module.Repository
+import test.co.kosong.repository.Repository
 import javax.inject.Inject
 
 @HiltViewModel

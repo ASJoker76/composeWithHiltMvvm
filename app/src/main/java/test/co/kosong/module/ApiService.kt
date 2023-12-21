@@ -3,7 +3,7 @@ package test.co.kosong.module
 import io.reactivex.Single
 import retrofit2.http.GET
 import test.co.kosong.model.libur
-import test.co.kosong.module.C.NOW
+import test.co.kosong.utils.C.NOW
 
 interface ApiService {
 

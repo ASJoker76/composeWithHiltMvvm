@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "757780894986",
+    "project_id": "asjane-pos",
+    "storage_bucket": "asjane-pos.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:757780894986:android:b356b8eb5dcbe59f4156f3",
+        "android_client_info": {
+          "package_name": "test.co.kosong"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBHLnltmF9_fBumD7EjAMenMBmYYroMvkM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
