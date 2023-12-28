@@ -14,6 +14,7 @@ import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.launch
 import test.co.kosong.model.AllState
 import test.co.kosong.repository.AuthRepository
+import test.co.kosong.utils.C
 import test.co.kosong.utils.Resource
 import javax.inject.Inject
 
@@ -32,7 +33,12 @@ class LoginViewModel @Inject constructor(private val application: Application, p
             val user = repository.getUserByUserName(userName)
             if (user != null && user.userPassword == userPassword) {
                 // Kredensial valid
-                _loginState.value = _loginState.value.copy(isSuccess = "Login Successful!")
+                if(user.userRole == C.ROLE.KASIR){
+                    _loginState.value = _loginState.value.copy(isSuccess = "Login Successful!", isStatus = 0)
+                }
+                else{
+                    _loginState.value = _loginState.value.copy(isSuccess = "Login Successful!", isStatus = 1)
+                }
             } else {
                 // Kredensial tidak valid
                 _loginState.value = _loginState.value.copy(isError = "Data not found")

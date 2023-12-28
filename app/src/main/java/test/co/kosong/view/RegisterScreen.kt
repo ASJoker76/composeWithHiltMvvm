@@ -72,7 +72,7 @@ fun RegisterScreen(navController: NavHostController, registerViewModel: Register
             Button(onClick = {
                 registerViewModel.addUserDetails()
                 homeViewModel.getUserDetails()
-                navController.navigate(Routes.Home.name)
+                navController.navigate(Routes.HomeKasir.name)
             }) {
                 Text(text = "Add")
             }

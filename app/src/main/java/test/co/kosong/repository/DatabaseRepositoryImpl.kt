@@ -17,7 +17,7 @@ class DatabaseRepositoryImpl : DatabaseRepository {
         val dB: FirebaseFirestore = FirebaseFirestore.getInstance()
         val dbUsers: CollectionReference = dB.collection("Users")
 
-        val users = User(userName = registerViewModel.userName, userAge = registerViewModel.userAge, userOccupation = registerViewModel.userOccupation, userPassword = registerViewModel.userPassword)
+        val users = User(userName = registerViewModel.userName, userAge = registerViewModel.userAge, userOccupation = registerViewModel.userOccupation, userPassword = registerViewModel.userPassword, userRole = 0)
 
         dbUsers.add(users).addOnSuccessListener {
             Toast.makeText(application, "User added successfully!", Toast.LENGTH_SHORT).show()

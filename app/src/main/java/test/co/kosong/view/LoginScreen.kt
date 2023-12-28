@@ -38,6 +38,7 @@ import androidx.navigation.NavHostController
 import kotlinx.coroutines.launch
 import test.co.kosong.R
 import test.co.kosong.routes.Routes
+import test.co.kosong.utils.C
 import test.co.kosong.viewmodel.HomeViewModel
 import test.co.kosong.viewmodel.LoginViewModel
 
@@ -77,7 +78,11 @@ fun LoginScreen(loginViewModel: LoginViewModel = hiltViewModel(), navController:
     }
 
     if (loginState.isSuccess.isNotBlank()) {
-        navController.navigate(Routes.Home.name)
+        if(loginState.isStatus == C.ROLE.KASIR){
+            navController.navigate(Routes.HomeKasir.name)
+        } else {
+            navController.navigate(Routes.HomeAdmin.name)
+        }
     }
 
     Box(

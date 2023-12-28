@@ -31,7 +31,7 @@ class RegisterViewModel @Inject constructor(private val application: Application
         val dB: FirebaseFirestore = FirebaseFirestore.getInstance()
         val dbUsers: CollectionReference = dB.collection("Users")
 
-        val users = User(userName = userName, userAge = userAge, userOccupation = userOccupation, userPassword = userPassword)
+        val users = User(userName = userName, userAge = userAge, userOccupation = userOccupation, userPassword = userPassword, userRole = 0)
 
         dbUsers.add(users).addOnSuccessListener {
             Toast.makeText(application, "User added successfully!", Toast.LENGTH_SHORT).show()

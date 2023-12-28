@@ -20,8 +20,16 @@ fun NavGraph(navController: NavHostController) {
             LoginScreen(navController = navController)
         }
 
-        composable(route = Routes.Home.name) {
-            HomeScreen(navController = navController)
+        composable(route = Routes.HomeAdmin.name) {
+            HomeAdminScreen(navController = navController)
+        }
+
+        composable(route = Routes.HomeKasir.name) {
+            HomeKasirScreen(navController = navController)
+        }
+
+        composable(route = Routes.ManagementUser.name) {
+            ManagementUserScreen(navController = navController)
         }
     }
 }

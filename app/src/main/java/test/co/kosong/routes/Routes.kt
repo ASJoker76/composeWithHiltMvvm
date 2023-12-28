@@ -4,6 +4,7 @@ enum class Routes {
     InitialScreen,
     Register,
     Login,
-    Home,
-    AddNewUser
+    HomeAdmin,
+    HomeKasir,
+    ManagementUser
 }
